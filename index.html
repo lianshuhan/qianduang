@@ -1,10 +1,18 @@
 <html>
 <body>
-<h1>我叫刘笑锋.</h1>
-    <p>我的学号是<span id="studentnumber">2012020045</span>
+<h1>我叫<span id="myname">.</h1>
+    <p>我的学号是<span id="mynumber">2012020045</span>
     </p>
     <img id="logo" src="Penguins.jpg"/>
     <img src="matrix.png"/>
-
+<script src="jquery-3.4.1.js"></script>
+<script>
+$(function(){
+    $.get("./data.json",function(result){
+          $("#myname").val(result.myname);
+          $("#mynumber").val(result.mynumber);
+    });
+})
+</script>
 </body>
 </html>
