@@ -9,8 +9,8 @@
 <script>
 $(function(){
     $.get("./data.json",function(result){
-          $("#myname").val(result.myname);
-          $("#mynumber").val(result.mynumber);
+          $("#myname").text(result.myname);
+          $("#mynumber").text(result.mynumber);
     });
 })
 </script>
