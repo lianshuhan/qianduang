@@ -4,8 +4,8 @@
 
     <p>我的学号是<span id="mynumber"></span>
     </p>
-    <button id="btn">下一个</button>
-    <img id="logo" src="Penguins.jpg" style="border-radius:10px 20px 40px 80px"/>
+    <a id="btn" href="login.html">去登录</a>
+    
     <img src="matrix.png"/>
     <script src="jquery-3.4.1.js"></script>
     <script>
@@ -15,18 +15,19 @@
                $("#myname").text(result.myname);
                $("#mynumber").text(result.mynumber);
              }
-
-            $.get("http://10.30.201.73:8585/data.json",callback);
-
-        })
-
-        $("#btn").click(function(){
-            $.get("http://10.30.201.73:8585/data.json",function(result){
-               $("#myname").text(result.myname);
-               $("#mynumber").text(result.mynumber);
-         
+             $.ajax({
+                type:"POST",
+                xhrFields: {
+                        withCredentials: true
+                },
+                url:"http://10.30.201.71:8585/userinfo",
+                contentType:"application/json",
+                success:callback
              });
+
+   
         })
+
 
     </script>
 </body>
