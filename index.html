@@ -10,17 +10,18 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
         $(function(){
-            $.get("./data.json",function(result){
-               
-              $("#myname").text(result.myname);
-              $("#mynumber").text(result.mynumber);
-        
-            });
+
+            var callback=function (result){
+               $("#myname").text(result.myname);
+               $("#mynumber").text(result.mynumber);
+             }
+
+            $.get("http://10.30.201.73:8585/data.json",callback);
 
         })
 
         $("#btn").click(function(){
-            $.get("./data1.json",function(result){
+            $.get("http://10.30.201.73:8585/data.json",function(result){
                $("#myname").text(result.myname);
                $("#mynumber").text(result.mynumber);
          
